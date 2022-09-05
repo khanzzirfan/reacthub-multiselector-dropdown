@@ -1,56 +1,29 @@
-# Create React App example with styled-components & TypeScript
+# React Multi Select dropdown component
 
-The main difference between this and the non-typescript example is that you need to add the following path config to your tsconfig:
+[Demo at Netlify ](https://visionary-scone-7bcb28.netlify.app/)
 
-```json
-"paths": {
-  "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
-}
+# Usage
+
 ```
+import MultiSelect from "./MultiSelect";
 
-and install @types/styled-components:
+const itemsChanged = (selectedItems: any): void => {
+    console.log(selectedItems);
+  };
 
-```sh
-npm install --save-dev @types/styled-components
+  const inputChange = (input: any) => {
+    //Input will be whatever current text is in the input
+  };
+
+  const getCustomTitle = (item: any): string => {
+    return `${item.firstName} ${item.lastName}`;
+  };
+
+ <MultiSelect
+              items={items}
+              onChange={itemsChanged}
+              onInputChange={inputChange}
+              getItemTitle={getCustomTitle}
+            />
+
 ```
-
-Alternatively, to skip this configuration, you can set `skipLibCheck: true` in your tsconfig.
-
-## How to use
-
-Download the example [or clone the repo](https://github.com/mui/material-ui):
-
-<!-- #default-branch-switch -->
-
-```sh
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app-with-styled-components-typescript
-cd create-react-app-with-styled-components-typescript
-```
-
-Install it and run:
-
-```sh
-npm install
-npm start
-```
-
-## CodeSandbox
-
-<!-- #default-branch-switch -->
-
-Note that CodeSandbox is not supporting react-app-rewired, yet you can [still see the code](https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/create-react-app-with-styled-components-typescript).
-
-The following link leverages this demo: https://mui.com/guides/interoperability/#change-the-default-styled-engine with Parcel's alias feature within the `package.json`
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/styled-components-interoperability-w9z9d)
-
-## The idea behind the example
-
-This example demonstrates how you can setup [Create React App](https://github.com/facebookincubator/create-react-app) with [styled-components](https://styled-components.com/) as a style engine for your application using TypeScript.
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/material-ui/getting-started/templates/) section.
